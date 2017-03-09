@@ -1,7 +1,7 @@
 # PWA
 
 
-该库是借助 [react starter kit][1] 来构建的 PWA skeleton。该库没有使用其他大型的 Service Worker 库，纯原生手写，相关的测试都已经通过。具体使用可以参考：[PWA 实践][2]。
+该库是借助 [react starter kit][1] 来构建的 PWA skeleton。该库没有使用其他大型的 Service Worker 库，纯原生手写，相关的测试都已经通过,适合新手参考。具体使用可以参考：[PWA 实践][2]。
 
 ## install
 首先，下载该库：
