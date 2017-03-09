@@ -1,0 +1,27 @@
+{
+  "dir": "ltr",
+  "lang": "zh-cn",
+  "name": "villianHR个人首页",
+  "scope": "/",
+  "display": true,
+  "start_url": "/",
+  "short_name": "villianHR个人首页",
+  "theme_color": "black",
+  "description": "blog_entry page: /index.html",
+  "orientation": "any",
+  "background_color": "transparent",
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "https://www.villainhr.com/favicon.ico",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "http://villainhr.com/apple-icon.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    }
+  ]
+}

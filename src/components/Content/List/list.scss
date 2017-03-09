@@ -1,0 +1,25 @@
+@import 'base';
+
+.list{
+  width:100%;
+  padding: 10px 6px;
+  display: flex;
+  .list-radio{
+    width: px2rem(25px);
+    height: px2rem(31px);
+    vertical-align: middle;
+  }
+  .list-input{
+    width:80%;
+    background-color: #99CCAA;
+    border: 0;
+    outline: none;
+    color:#464444;
+    border-bottom: 1px solid #ddd;
+    font-size:px2rem(18px);
+    height: 31px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

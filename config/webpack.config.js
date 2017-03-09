@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const project = require('./project.config')
 const debug = require('debug')('app:config:webpack')
+const COPY = require('copy-webpack-plugin');
 
 const __DEV__ = project.globals.__DEV__
 const __PROD__ = project.globals.__PROD__
@@ -16,7 +17,9 @@ const webpackConfig = {
   devtool : project.compiler_devtool,
   resolve : {
     root       : project.paths.client(),
-    extensions : ['', '.js', '.jsx', '.json']
+    extensions : ['', '.js', '.jsx', '.json'],
+    alias:{
+    }
   },
   module : {}
 }
@@ -24,6 +27,10 @@ const webpackConfig = {
 // Entry Points
 // ------------------------------------
 const APP_ENTRY = project.paths.client('index.js')
+const ServiceWorker = project.paths.client('assets/sw.js');
+const PUSH_ICON = project.paths.client('assets/student.png');
+const Manifest = project.paths.client('assets/manifest.webmanifest');
+const Path_To_Reg = project.paths.client('assets/path-to-regexp.js');
 
 webpackConfig.entry = {
   app : __DEV__
@@ -37,6 +44,7 @@ webpackConfig.entry = {
 // ------------------------------------
 webpackConfig.output = {
   filename   : `[name].[${project.compiler_hash_type}].js`,
+  // filename:`[name].js`,
   path       : project.paths.dist(),
   publicPath : project.compiler_public_path
 }
@@ -48,6 +56,7 @@ webpackConfig.externals = {}
 webpackConfig.externals['react/lib/ExecutionEnvironment'] = true
 webpackConfig.externals['react/lib/ReactContext'] = true
 webpackConfig.externals['react/addons'] = true
+webpackConfig.externals['react/lib/ReactCSSTransitionGroup'] = true
 
 // ------------------------------------
 // Plugins
@@ -56,6 +65,7 @@ webpackConfig.plugins = [
   new webpack.DefinePlugin(project.globals),
   new HtmlWebpackPlugin({ // 将编译后的 js/css 文件,注入到 HTML 文件当中
     template : project.paths.client('index.html'),
+    title    : require(project.paths.public('meta.html')), // 注入模板
     hash     : false,
     favicon  : project.paths.public('favicon.ico'),
     filename : 'index.html',
@@ -63,7 +73,23 @@ webpackConfig.plugins = [
     minify   : {
       collapseWhitespace : true
     }
-  })
+  }),
+  new COPY([{
+    from:ServiceWorker,
+    to:project.paths.dist()
+  },
+    {
+      from:PUSH_ICON,
+      to:project.paths.dist()
+    },
+    {
+      from:Manifest,
+      to:project.paths.dist()
+    },
+    {
+      from:Path_To_Reg,
+      to:project.paths.dist()
+    }])
 ]
 
 // Ensure that the compiler exits on errors during testing so that

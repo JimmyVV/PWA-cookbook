@@ -1,10 +1,14 @@
 import { applyMiddleware, createStore } from 'redux'
-import Reducers from './reducers'
+import makeRootReducer from './reducers'
 
-const initialState = window.___INITIAL_STATE__
+export default (initialState = {}) => {
+  const middleware = [];
 
+  const store = createStore(
+    makeRootReducer(),
+    initialState,
+    applyMiddleware(...middleware)
+  )
 
-export default createStore(
-  Reducers(),
-  initialState
-)
+  return store;
+}

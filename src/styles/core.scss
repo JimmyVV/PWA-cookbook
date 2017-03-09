@@ -1,10 +1,20 @@
 @import 'base';
-@import '~normalize.css/normalize';
+//@import '~normalize.css/normalize';
 
 // Some best-practice CSS that's useful for most apps
 // Just remove them if they're not what you want
+
+@media (min-width : 375px) and (max-width : 667px) and (resolution : 2dppx){
+  html{font-size: 37.5px;}
+}
+
+//iphone5 的基准值
+@media (min-width : 320px) and (max-width : 568px) and (resolution : 2dppx){
+  html{font-size: 32px;}
+}
 html {
   box-sizing: border-box;
+  font-size:37.5px;
 }
 
 html,

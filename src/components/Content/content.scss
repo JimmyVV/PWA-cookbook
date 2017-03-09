@@ -1,0 +1,62 @@
+@import 'base';
+@import 'assets/font_css/date.scss';
+
+.container{
+  background-color: #99CCAA;
+  color: #fff;
+  padding-top:20px;
+  position: relative;
+  height: calc(100vh - 48px);
+  box-sizing: border-box;
+  [class*=" icon-"]:before, [class^=icon-]:before{
+    font-size:px2rem(28px);
+    color:#ede3e3;
+    line-height: 40px;
+  }
+  &>i{
+    position: absolute;
+    font-size: px2rem(20px);
+    display: inline-block;
+    border-radius: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(72, 129, 156, 0.64);
+  }
+  .icon-cw{
+    right: px2rem(6px);
+    top: px2rem(3px);
+    &::before{
+      width:px2rem(32px);
+    }
+  }
+  .icon-plus{
+    bottom:px2rem(6px);
+    right:px2rem(6px);
+  }
+}
+.lists-enter {
+  opacity: 0.01;
+}
+
+.lists-enter.lists-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.lists-leave {
+  opacity: 1;
+}
+
+.lists-leave.lists-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+.lists-appear {
+  opacity: 0.01;
+}
+
+.lists-appear.lists-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}

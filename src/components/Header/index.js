@@ -1,3 +1,19 @@
-import Header from './Header'
+import './header.scss';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
-export default Header
+
+class Header extends Component {
+  render() {
+    return (
+      <header className="td_header">
+        <h2>TODO</h2>
+      </header>
+    )
+  }
+}
+
+export default connect()(Header);
+
+
+

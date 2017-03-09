@@ -10,3 +10,9 @@ For example:
 @import './variables/components';
 @import './themes/default';
 */
+
+
+@function px2rem($px){
+  $rem : 37.5px;
+  @return ($px/$rem) + rem;
+}
